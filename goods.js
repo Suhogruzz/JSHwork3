@@ -189,28 +189,28 @@ regexp  = /(Брюки|Носки)/i;
 const newGoodList = new GoodList(createdGoods, regexp, true, true);
 
 const newBasketGood1 = new BasketGood(good1, 1);
-//console.log(newBasketGood1);
+console.log(newBasketGood1);
 const newBasketGood2 = new BasketGood(good2, 2);
-//console.log(newBasketGood2);
+console.log(newBasketGood2);
 const newBasketGood3 = new BasketGood(good3, 3);
-//console.log(newBasketGood3);
+console.log(newBasketGood3);
 const newBasketGood4 = new BasketGood(good4, 4);
-//console.log(newBasketGood4);
+console.log(newBasketGood4);
 const newBasketGood5 = new BasketGood(good5, 5);
-//console.log(newBasketGood5);
+console.log(newBasketGood5);
 
 
 const newBasket = new Basket();
-//console.log(newBasket);
+console.log(newBasket);
 
 good4.setAvailable();
 console.log(good4.available);
 
-//console.log(newCatalogue.list);
+console.log(newCatalogue.list);
 
-//console.log(newCatalogue.add(good6));
+console.log(newCatalogue.add(good6));
 
-//console.log(newCatalogue.remove(undefined));
+console.log(newCatalogue.remove(undefined));
 
 newBasket.add(newBasketGood1, 4);
 console.log(newBasket);
@@ -218,10 +218,10 @@ console.log(newBasket);
 newBasket.add(newBasketGood4, 3);
 console.log(newBasket);
 
-//newBasket.clear()
-//console.log(newBasket);
+newBasket.clear()
+console.log(newBasket);
 
-//newBasket.removeUnavailable()
+newBasket.removeUnavailable()
 
 amounts = newBasket.TotalAmount
 
