@@ -46,7 +46,7 @@ class GoodList {
     remove(id) {
         let idFound = false;
         this.#goods.forEach((good, index) => {
-            if (index === good.id) {
+            if (id === good.id) {
                 this.#goods.splice(index, 1);
                 idFound = true;
             };
@@ -85,9 +85,9 @@ class Basket {
     };
     add(good, amount) {
         switch(true) {
-            case (amount < 0):
-                this.remove(good, amount);
             case (amount <= 0):
+                this.remove(good, amount);
+            case (amount > 0):
                 let idFound = false;
                 for (let index = 0; index < this.goods.length; index++) {
                     if (this.goods[index].id === good.id) {
@@ -102,7 +102,7 @@ class Basket {
         };        
     };
     remove(good, amount) {
-        let listId = this.goods.map((thisGood) =>thisGood.id);
+        let listId = this.goods.map((thisGood) => thisGood.id);
         if (listId.includes(good.id)) {
             for (let index = 0; index < this.goods.length; index++) {
                 if (this.goods[index].id === good.id) {
@@ -186,44 +186,47 @@ createdGoods.push(good4);
 createdGoods.push(good5);
 
 regexp  = /(Брюки|Носки)/i;
-const newCatalogue = new GoodList(createdGoods, regexp, true, true);
+const newGoodList = new GoodList(createdGoods, regexp, true, true);
 
 const newBasketGood1 = new BasketGood(good1, 1);
-console.log(newBasketGood1);
+//console.log(newBasketGood1);
 const newBasketGood2 = new BasketGood(good2, 2);
-console.log(newBasketGood2);
+//console.log(newBasketGood2);
 const newBasketGood3 = new BasketGood(good3, 3);
-console.log(newBasketGood3);
+//console.log(newBasketGood3);
 const newBasketGood4 = new BasketGood(good4, 4);
-console.log(newBasketGood4);
-const newBasketGood5 = new BasketGood(good6, 5);
-console.log(newBasketGood5);
+//console.log(newBasketGood4);
+const newBasketGood5 = new BasketGood(good5, 5);
+//console.log(newBasketGood5);
 
 
 const newBasket = new Basket();
-console.log(newBasket);
+//console.log(newBasket);
 
 good4.setAvailable();
 console.log(good4.available);
 
-console.log(newCatalogue.list);
+//console.log(newCatalogue.list);
 
-console.log(newCatalogue.add(good6));
+//console.log(newCatalogue.add(good6));
 
-console.log(newCatalogue.remove(undefined));
+//console.log(newCatalogue.remove(undefined));
 
-newBasket.add(newBasketGood1, newBasketGood1.amount);
+newBasket.add(newBasketGood1, 4);
 console.log(newBasket);
 
 newBasket.add(newBasketGood4, 3);
 console.log(newBasket);
 
-newBasket.clear()
-console.log(newBasket);
+//newBasket.clear()
+//console.log(newBasket);
 
-newBasket.removeUnavailable()
-console.log(newBasketGood1.amount);
+//newBasket.removeUnavailable()
 
-console.log(`Общая стоимость:${newBasket.totalAmount}`);
+amounts = newBasket.TotalAmount
 
-console.log(`Общее количество:${newBasket.totalSum}`);
+sums = newBasket.TotalSum
+
+console.log(`Общая стоимость:${amounts}`);
+
+console.log(`Общее количество:${sums}`);
